@@ -1,0 +1,166 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ImageView
+        android:id="@+id/background_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/background"
+        android:scaleType="centerCrop" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/exit_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="X"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_margin="16dp"/>
+
+        <!-- Верхний игрок с изображением -->
+        <ImageView
+            android:id="@+id/player1_image"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="Игрок 1"
+            android:scaleType="fitCenter"
+            android:src="@drawable/player1" />
+
+        <!-- Количество монет игрока 1 -->
+        <TextView
+            android:id="@+id/player1_coins"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Money: 10"
+            android:background="@color/white"
+            android:layout_toEndOf="@id/player1_image"
+            android:layout_alignBaseline="@id/player1_image"
+            android:layout_marginStart="8dp" />
+
+        <!-- Индикатор здоровья игрока 1 -->
+        <TextView
+            android:id="@+id/player1_health"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Health: 40"
+            android:background="@color/white"
+            android:layout_below="@id/player1_coins"
+            android:layout_toEndOf="@id/player1_image"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp" />
+
+        <!-- "Ход" текст в центре -->
+        <TextView
+            android:id="@+id/turn_counter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ход 1"
+            android:textSize="24sp"
+            android:background="@color/white"
+            android:textStyle="bold"
+            android:layout_centerInParent="true" />
+
+        <!-- конец хода -->
+        <Button
+            android:id="@+id/end_turn_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Конец хода"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="16dp" />
+
+        <!-- RecyclerView для карт игрока 1 -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/player1_hand"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/player1_image"
+            android:layout_marginBottom="16dp"
+            android:layout_centerHorizontal="true"
+            android:maxWidth="150dp"
+            android:clipToPadding="false"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:scrollbars="horizontal"/>
+
+        <!-- Нижний игрок с изображением -->
+        <ImageView
+            android:id="@+id/player2_image"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="Игрок 1"
+            android:scaleType="fitCenter"
+            android:src="@drawable/player2" />
+
+        <!-- Индикатор здоровья игрока 2 -->
+        <TextView
+            android:id="@+id/player2_health"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Health: 40"
+            android:background="@color/white"
+            android:layout_above="@id/player2_coins"
+            android:layout_toEndOf="@id/player2_image"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="4dp" />
+
+        <!-- Количество монет игрока 2 -->
+        <TextView
+            android:id="@+id/player2_coins"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Money: 10"
+            android:background="@color/white"
+            android:layout_marginStart="8dp"
+            android:layout_toEndOf="@id/player2_image"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="8dp" />
+
+        <!-- RecyclerView для карт игрока 2 -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/player2_hand"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/player2_image"
+            android:layout_marginTop="16dp"
+            android:layout_centerHorizontal="true"
+            android:maxWidth="150dp"
+            android:clipToPadding="false"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:scrollbars="horizontal"/>
+
+        <!-- Контейнеры для карт на поле -->
+        <LinearLayout
+            android:id="@+id/player2_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_below="@id/turn_counter"
+            android:layout_marginBottom="8dp"
+            android:padding="16dp"/>
+
+        <LinearLayout
+            android:id="@+id/player1_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_above="@id/turn_counter"
+            android:layout_marginTop="8dp"
+            android:padding="16dp"/>
+    </RelativeLayout>
+</FrameLayout>
